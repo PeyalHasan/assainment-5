@@ -1,21 +1,25 @@
 const totalBookedSeat = [];
-let count = 0;
+let count = 1;
 const seats = document.getElementsByClassName("seat");
 for(const btn of seats){
     btn.addEventListener("click", function(e){
-            btn.disabled = true;
+           
             count = count + 1;
             setBackgroundColorById(e);
+            if(count > 5){
+
+                btn.disabled = true;
+                alert('You can buy only 4 ticket!');
+                return;
+            }
             const currentSeat = setInnerText('left-seat');
             let left = currentSeat - 1;
             setTextElementValueById('left-seat', left);
             const bookedSeat = setInnerText('booked-seat');
             let totalBooked = bookedSeat + 1;
             setTextElementValueById('booked-seat', totalBooked);
-            if(count > 4){
-                btn.removeEventListener("click");
-            }
-            else if(totalBooked <= 4){
+           
+             if(count > 4){
                 showElementById("discount")
                 const couponElement =document.getElementById("discount").value;
             }
