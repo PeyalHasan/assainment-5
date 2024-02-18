@@ -1,12 +1,8 @@
-
 const totalBookedSeat = [];
-console.log(totalBookedSeat)
+
 const seats = document.getElementsByClassName("seat");
 for(const btn of seats){
     btn.addEventListener("click", function(e){
-        
-        const arr = btn.innerText;
-        totalBookedSeat.push(arr);
         
         setBackgroundColorById(e);
         const currentSeat = setInnerText('left-seat');
@@ -15,7 +11,14 @@ for(const btn of seats){
         const bookedSeat = setInnerText('booked-seat');
         let totalBooked = bookedSeat + 1;
         setTextElementValueById('booked-seat', totalBooked);
-
+        if(totalBooked > 4){
+           btn.removeEventListener("click")
+        }
+        else if(totalBooked >= 4){
+            showElementById("discount")
+            const couponElement =document.getElementById("discount").value;
+            console.log(couponElement)
+        }
         const selectedContainer = document.getElementById("selected-container");
 
         const ticketPrice = setInnerText("ticket-price")
@@ -43,10 +46,26 @@ for(const btn of seats){
 
 
         setTextElementValueById('grand-total', grandTotal)
+        btn.disabled == true;
     })
 }
 
-
+const btn = document.getElementById('apply-btn');
+btn.addEventListener("click", function coupon(){
+    const couponElement = document.getElementById("coupon").value;
+    if(couponElement === 'NEW15'){
+      const total = document.getElementById("total-price").innerText;
+        const discount = total * 0.15;
+        const grandTotal = total - discount;
+        setTextElementValueById('grand-total', grandTotal)
+    }
+    if(couponElement === 'Couple 20'){
+      const total = document.getElementById("total-price").innerText;
+        const discount = total * 0.20;
+        const grandTotal = total - discount;
+        setTextElementValueById('grand-total', grandTotal)
+    }
+})
 
 
 
