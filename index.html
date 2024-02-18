@@ -32,7 +32,7 @@
 </head>
 
 <body class=" container mx-auto raleway  px-2 lg:px-5 lg:max-w-[1171px] ">
-    <header>
+    <header id="header">
         <!--Navbar-->
         <div class="navbar ">
             <div class="navbar-start">
@@ -351,7 +351,7 @@
                             <input type="text" class="grow" placeholder="Enter your phone number" />
                         </label>
 
-                        <button class="btn w-full bg-green-400 my-2 text-xl text-white">Next</button>
+                        <button id="next" onclick="nextPage()" class="btn w-full bg-green-400 my-2 text-xl text-white">Next</button>
                         <div class="flex justify-around">
                             <div>
                                 <a target="_blank" href="https://policies.google.com/terms?hl=en-US">Terms and
@@ -389,8 +389,8 @@
     </footer>
 
     <!--Success Section-->
-    <div class="w-1/2 items-center text-center container mx-auto hidden">
-        <div class="w-1/2 ml-28  flex justify-center">
+    <div id="success" class="lg:w-1/2 bg-slate-100 rounded-xl my-64 items-center text-center container mx-auto hidden">
+        <div class="lg:w-1/2 lg:ml-28 ml-14  flex justify-center">
             <img class="" src="images/success.png" alt="">
         </div>
         <h3 class="text-xl font-semibold text-green-500">SUCCESS</h3>

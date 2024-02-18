@@ -26,8 +26,4 @@ function setTextElementValueById(elementId, value){
     element.innerText = value;
 }
 
-function totalPrice(){
-    
-        return totalPrice;
-}
 
